@@ -1,0 +1,179 @@
+//JavaScript Variable Scope
+
+
+//1.block scope
+//2.function scope
+//3.global scope
+
+// Block scope
+/*
+{
+
+}
+*/
+// block scope              
+// VAR          LET               CONST
+
+//inside of block           YES          YES               YES
+
+//outside of block          YES           NO               NO
+
+// {
+    // let b =10;
+            // ---------------------{this will show error because it is outside the box}
+        
+            
+// }
+// console.log(b)
+{
+    let b =10;
+    console.log(b) 
+
+// } ------------------------------------ {this will rum because it is in the box }
+
+
+// -----------------
+
+
+// function scope                var           let           const
+//Inside of function              YES           YES            YES
+// outside of function             NO            NO             NO
+
+
+function hello(){
+var a = 10;
+console.log(a);
+
+}
+hello()
+
+function  bye() {
+    let b = 20;
+    console.log(b);
+  
+}
+bye()
+
+function tata(){
+    const c = 30;
+    console.log(c)
+}
+
+tata()
+
+
+// -----------------------
+
+//global 
+
+var a = 10;
+let b =20;
+const c = 30;
+
+
+{
+console.log(a)
+console.log(b)
+console.log(c)
+}
+
+function hi() {
+    console.log(a, b, c);
+}
+
+hi();
+
+// ---------------------------
+// this is for easy explanation
+
+
+
+
+// JavaScript Variable Scope
+
+
+
+// In JavaScript, the scope of a variable determines where it can be accessed within the code.
+
+// Variables can be declared in different scopes:
+
+// Global Scope
+// Local (Function) Scope
+// Block-Level Scope
+
+// For example,
+
+function addNumbers() {
+    var sum = 5 + 4;
+}
+
+// Here, the sum variable is created inside the addNumbers() function.
+
+// So, it's accessible only within that function (local or function scope). This kind of variable is known as a local variable.
+
+
+// ---------------------
+// JavaScript Local Variables
+
+
+// When variables are declared inside a function, they have a local scope and are accessible only within that function.
+
+// These types of variables are called local variables. For example,
+function greet() {
+
+    // local variable
+    var message = "Hello";
+    
+    console.log(`Local: ${message}`);
+}
+
+greet();
+
+// try to access message variable
+// outside the greet() function
+console.log(`Global: ${message}`);
+
+
+
+// Local: Hello
+// ERROR!
+// ... ... ...
+// ReferenceError: message is not defined
+
+// --------------------
+
+// In JavaScript, a variable declared outside any function or in the global scope is known as a global variable.
+
+// A global variable can be accessed both inside and outside of functions. For example,
+
+// --------------------
+// JavaScript Block-Level Variables
+
+
+// JavaScript ES6 introduced block-level scoping with the let and const keywords.
+
+// Block-level variables are accessible only within the block {} they are defined in, which can be smaller than a function's scope. For example,
+
+
+// function display_scopes() {
+//     // declare variable in local scope
+//     let message = "local";
+
+//     if (true) {
+
+//         // declare block-level variable
+//         let message = "block-level";
+
+//         console.log(`inner scope: ${message}`);
+//     }
+
+//     console.log(`outer scope: ${message}`);
+// }
+
+// // display_scopes();
+
+// ----------------
+Output
+
+// inner: block-level
+// outer: local
